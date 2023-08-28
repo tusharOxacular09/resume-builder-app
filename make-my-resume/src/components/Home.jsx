@@ -1,16 +1,50 @@
-import React from 'react'
+import React, { useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
+import CvSlider from "./CvSlider";
 
-const Home = () => {
+const Home = ({ space }) => {
+  const [image, setImage] = useState("./images/cv10.jpg");
+  const setMargin = space ? "lg:mt-20" : "mt-20 max-lg:pt-2";
   return (
-    <div className='lg:flex'>
-        <div className='lg:w-1/2 h-full mt-10 ml-20 lg:mt-24'>
-            <h1 className='text-4xl lg:text-6xl font-bold leding-tight lg:leading-snug'>Get <span className='text-amber-400'>Hired!!</span> <br/> By building your resume <br/> for Free...</h1>
-            <p>Build beautiful, recruiter-tested resumes in a few clicks! Our resume builder is powerful and easy to use, with a range of amazing functions. Custom-tailor resumes for any job within minutes. Increase your interview chances and rise above the competition.</p>
-            <button>Get Started</button>
+    <div className={setMargin}>
+      <div className="lg:flex items-center">
+        <div className="lg:w-1/2 h-full ml-6 lg:ml-20 mr-2 max-md:mt-2">
+          <h1 className="text-2xl md:text-3xl lg:text-6xl font-bold leding-tight lg:leading-snug">
+            Get <span className="text-amber-400">Hired!!</span> <br /> By
+            building your resume <br /> for Free...
+          </h1>
+          <div className="text-gray-600 font-medium text-sm lg:text-lg leding-tight mt-2">
+            <Typewriter
+              words={[
+                "Build beautiful, recruiter-tested resumes in a few clicks! Our resume builder is powerful and easy to use, with a range of amazing functions. Custom-tailor resumes for any job within minutes. Increase your interview chances and rise above the competition.",
+              ]}
+              loop={1}
+              cursor
+              cursorStyle="|"
+              typeSpeed={50}
+              deleteSpeed={10}
+              delaySpeed={1000}
+            />
+          </div>
+          <Link
+            to={"/build"}
+            className="block mt-4 lg:mt-6 w-32 lg:w-40 text-center bg-amber-400 px-4 py-3 rounded-xl font-bold text-base lg:text-lg hover:bg-amber-500"
+          >
+            Get Started
+          </Link>
         </div>
-       <img className="rounded-lg" src="./images/home_img.jpg" alt="Iimage Here" />
+        <div className="w-full lg:w-1/2 flex items-center justify-center">
+          <img
+            className="rounded-lg w-3/5 lg:w-7/12 mt-8 lg:mt-8 border-2"
+            src={image}
+            alt="Iimage Here"
+          />
+        </div>
+      </div>
+      <CvSlider setImage={setImage} />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

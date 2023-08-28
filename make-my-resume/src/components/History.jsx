@@ -1,8 +1,9 @@
 import React from 'react'
 
-const History = () => {
+const History = ({space}) => {
+  const setMargin = space ? 'lg:mt-20':'mt-20';
   return (
-    <div>
+    <div className={setMargin}>
       History
     </div>
   )

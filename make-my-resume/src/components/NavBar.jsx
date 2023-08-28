@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SmallNav from "./SmallNav";
 
-const NavBar = () => {
+const NavBar = ({ setSpace }) => {
   const [smallNav, setSmallNav] = useState(false);
 
   const handleClick = () => {
     if (smallNav === false) {
       setSmallNav(true);
+      setSpace(true);
     } else {
       setSmallNav(false);
+      setSpace(false);
     }
   };
 
   return (
-    <div>
-      <div className="flex justify-between items-center h-20 bg-nav p-4">
+    <div className="overflow-hidden relative">
+      <div className="flex w-full fixed justify-between items-center h-20 bg-nav p-4">
         <div className="flex justify-between items-center">
           <p className="ml-2 text-3xl max-lg:text-2xl font-medium text-white">
             make

@@ -1,8 +1,9 @@
 import React from 'react'
 
-const BuildResume = () => {
+const BuildResume = ({space}) => {
+  const setMargin = space ? 'lg:mt-20':'mt-20';
   return (
-    <div>
+    <div className={setMargin}>
       building resume
     </div>
   )
