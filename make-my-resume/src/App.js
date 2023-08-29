@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import NavBar from "./components/NavBar";
-import BuildResume from "./components/BuildResume";
-import History from "./components/History";
+import Home from "./components/Home/Home";
+import NavBar from "./components/NavBar/NavBar";
+import BuildResume from "./components/Build/BuildResume";
+import History from "./components/History/History";
 import { useState } from "react";
 
 function App() {

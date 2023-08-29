@@ -30,8 +30,9 @@ const CvSlider = ({ setImage }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="flex overflow-hidden py-10 cursor-pointer">
-        {imageObj.map((obj) => (
+        {imageObj.map((obj, i) => (
           <img
+            key={i}
             onClick={() => setImage(obj.path)}
             className="w-2/12 mx-0 border"
             src={obj.path}
