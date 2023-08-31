@@ -21,7 +21,7 @@ const ImageCropper = () => {
 
   return (
     <div>
-      <Avatar width={350} height={200} onCrop={onCrop} onClose={onClose}/>
+      <Avatar width={300} height={150} onCrop={onCrop} onClose={onClose} />
     </div>
   );
 };

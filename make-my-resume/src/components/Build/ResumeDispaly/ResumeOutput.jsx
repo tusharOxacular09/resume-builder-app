@@ -1,25 +1,19 @@
 import React, { useContext } from 'react'
 import UserContext from '../ContextAPI'
 
-const ResumeOutput = () => {
+const ResumeOutput = ({personalDetails}) => {
   const [image, setImage] = useContext(UserContext)
-  const [fullName, setFullNmae] = useContext(UserContext)
-  const [headLine, setHeadLine] = useContext(UserContext)
-  const [email, setEmail] = useContext(UserContext)
-  const [phone, setPhone] = useContext(UserContext)
-  const [website, setWebsite] = useContext(UserContext)
-  const [summery, setSummery] = useContext(UserContext)
-  const [dob, setDob] = useContext(UserContext)
+  
   return (
     <div>
-      <img src={image} alt="" className='w-32 h-32 border rounded-full border-sky-500'/>
-      <p>name {fullName}</p>
-      <p>1. {headLine}</p>
-      <p>2. {email}</p>
-      <p>{phone}</p>
-      <p>{website}</p>
-      <p>{summery}</p>
-      <p>{dob}</p>
+      <img src={image || "https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg"} alt="" className='w-32 h-32 border rounded-full'/>
+      <p>{personalDetails.fullName}</p>
+      <p>{personalDetails.headLine}</p>
+      <p>{personalDetails["email"]}</p>
+      <p>{personalDetails.phone}</p>
+      <p>{personalDetails.website}</p>
+      <p>{personalDetails.summery}</p>
+      <p>{personalDetails.dob}</p>
     </div>
   )
 }

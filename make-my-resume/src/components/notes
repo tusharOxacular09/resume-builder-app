@@ -11,3 +11,22 @@
 
 //<input type="file" accept='image/*' onChange={(e)=>{setUserImg(URL.createObjectURL(e.target.files[0]))}} id="file" className='hidden'/>
 //<label htmlFor="file" className='border rounded-lg px-3 py-1 bg-amber-300 hover:bg-amber-400 cursor-pointer'>Upload Photo</label>
+
+// npx create-react-app localstorage-react-hook
+
+// JSON.stringlify() : array/obj to string
+// JSON.parse() : string to array/object...
+
+ /*
+   Always use USE Context for,
+   - Notification
+   - theam
+   - Font Size etc....
+
+   UseState
+   - The second parameter is used to update the state.
+
+   UseEffect
+   - It allows to run the code after the component has been rendered.
+  */
+  

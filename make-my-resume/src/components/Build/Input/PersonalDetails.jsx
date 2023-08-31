@@ -1,98 +1,98 @@
-import React, { useContext } from "react";
+import React from "react";
 import ImageCropper from "./ImageCropper";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
-import UserContext from "../ContextAPI";
 
-const PersonalDetails = () => {
-  const [fullName, setFullNmae] = useContext(UserContext)
-  const [headLine, setHeadLine] = useContext(UserContext)
-  const [email, setEmail] = useContext(UserContext)
-  const [phone, setPhone] = useContext(UserContext)
-  const [website, setWebsite] = useContext(UserContext)
-  const [summery, setSummery] = useContext(UserContext)
-  const [dob, setDob] = useContext(UserContext)
+
+const PersonalDetails = ({ setPersonalDetails, personalDetails }) => {
+  
+  const handleChange = (e) => {
+     const {name, value} = e.target
+     setPersonalDetails((prev) => {
+       return { ...prev, [name]: value}
+     })
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center">
-      <form className="p-4 lg:p-8">
-        <div className="flex flex-col items-center justify-center mb-4">
-          <p className="text-xl font-semibold mb-1">Upload Your Image.....</p>
+    <div className="flex flex-col items-center justify-center p-2">
+        <div className="flex flex-col items-center justify-center mb-2">
+          <p className="text-lg font-semibold mb-1">Upload Your Image.....</p>
           <ImageCropper />
         </div>
-
+        <form className="lg:p-8">
         <div className="flex flex-col items-center justify-center">
-          <div className="flex gap-2 mb-2">
+          <div className="flex gap-3 mb-3">
             <TextField
+              value={personalDetails.fullName}
+              name="fullName"
               required
               label="Full Name"
               id="outlined-size-medium"
               size="medium"
-              onChange={(e) => {
-                setFullNmae(e.target.value)
-              }}
+              onChange={handleChange}
             />
             <TextField
+              value={personalDetails.headLine}
+              name="headLine"
               required
               label="Headline"
               id="outlined-size-medium"
               size="medium"
-              onChange={(e) => {
-                setHeadLine(e.target.value)
-              }}
+              onChange={handleChange}
             />
           </div>
 
           <TextField
+            value={personalDetails["email"]}
+            name="email"
             fullWidth
             required
             label="Email"
             id="outlined-size-medium"
             size="medium"
-            onChange={(e) => {
-              setEmail(e.target.value)
-            }}
+            onChange={handleChange}
           />
 
-          <div className="flex gap-2 mb-2 mt-2">
+          <div className="flex gap-3 mb-3 mt-3">
             <TextField
+              value={personalDetails.phone}
+              name="phone"
               required
               label="Phone Number"
               id="outlined-size-medium"
               size="medium"
-              onChange={(e) => {
-                setPhone(e.target.value)
-              }}
+              onChange={handleChange}
             />
             <TextField
+              value={personalDetails.website}
+              name="website"
               label="Website"
               id="outlined-size-medium"
               size="medium"
-              onChange={(e) => {
-                setWebsite(e.target.value)
-              }}
+              onChange={handleChange}
             />
           </div>
           <TextField
+            value={personalDetails.summery}
+            name="summery"
             fullWidth
             id="outlined-multiline-static"
             label="Summary"
             multiline
             rows={4}
-            onChange={e => setSummery(e.target.value)}
+            onChange={handleChange}
           />
-          <div className="w-full h-2"></div>
+          <div className="w-full h-3"></div>
           <TextField
+            value={personalDetails.dob}
+            name="dob"
             fullWidth
             id="outlined-size-medium"
             size="medium"
             type="date"
-            onChange={(e) => {
-              setDob(e.target.value)
-            }}
+            onChange={handleChange}
           />
-          <Link className="block mt-4 lg:mt-6 w-32 lg:w-40 text-center bg-amber-400 px-4 py-3 rounded-xl font-bold text-base lg:text-lg hover:bg-amber-500">
-            Next
-          </Link>
+          <Link to='/' className="block mt-4 w-24 text-center bg-amber-400 p-2 rounded-xl font-bold text-base lg:text-lg hover:bg-amber-500">Next</Link>
         </div>
       </form>
     </div>
