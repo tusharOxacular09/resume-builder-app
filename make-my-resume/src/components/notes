@@ -3,3 +3,11 @@
 // 11.69 inch = 1122.24 px
 
 // 2b274c
+
+//  @material-tailwind/react
+// outline: none; // In CSS
+
+// npm i react-image-crop
+
+//<input type="file" accept='image/*' onChange={(e)=>{setUserImg(URL.createObjectURL(e.target.files[0]))}} id="file" className='hidden'/>
+//<label htmlFor="file" className='border rounded-lg px-3 py-1 bg-amber-300 hover:bg-amber-400 cursor-pointer'>Upload Photo</label>

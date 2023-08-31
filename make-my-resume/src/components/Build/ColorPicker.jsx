@@ -1,4 +1,3 @@
-import React from "react"
 
 const ColorPicker = ({ setBackground }) => {
   const colorPicker = [
@@ -25,13 +24,14 @@ const ColorPicker = ({ setBackground }) => {
             <div
               key={i}
               onClick={() => {
-                setBackground(`${key.color}1`)
+                 setBackground(`${key.color+2}`)
               }}
               className={`border my-1 mx-2 border-slate-600 w-10 h-10 rounded-full ${key.color} cursor-pointer`}
             ></div>
           );
         })}
       </div>
+      
     </div>
   );
 };
