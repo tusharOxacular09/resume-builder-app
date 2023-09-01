@@ -1,33 +1,40 @@
-import React from 'react'
+import React from "react";
 import TextField from "@mui/material/TextField";
 
-const Location = () => {
-    const handleChange = () => {}
+const Location = ({ setUserLocation, userLocation }) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserLocation((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
   return (
-    <div>
-        <TextField
-            name="email"
+    <div className="flex flex-col items-center justify-center p-2">
+      <form className="lg:p-8">
+        <div className="flex flex-col items-center justify-center">
+          <TextField
+            value={userLocation.address}
+            name="address"
             fullWidth
-            required
-            label="Email"
+            label="Address"
             id="outlined-size-medium"
             size="medium"
             onChange={handleChange}
           />
-        <div className="flex gap-3 mb-3 mt-3">
+          <div className="flex gap-3 mb-3 mt-3">
             <TextField
-              
-              name="phone"
-              required
-              label="Phone Number"
+              value={userLocation.city}
+              name="city"
+              label="City"
               id="outlined-size-medium"
               size="medium"
               onChange={handleChange}
             />
             <TextField
-              
-              name="website"
-              label="Website"
+              value={userLocation.region}
+              name="region"
+              label="Region"
               id="outlined-size-medium"
               size="medium"
               onChange={handleChange}
@@ -35,26 +42,28 @@ const Location = () => {
           </div>
           <div className="flex gap-3 mb-3 mt-3">
             <TextField
-             
-              name="phone"
+              value={userLocation.country}
+              name="country"
               required
-              label="Phone Number"
+              label="Country"
               id="outlined-size-medium"
               size="medium"
               onChange={handleChange}
             />
             <TextField
-              
-              name="website"
-              label="Website"
+              required
+              value={userLocation.postal_code}
+              name="postal_code"
+              label="Postal Code"
               id="outlined-size-medium"
               size="medium"
               onChange={handleChange}
             />
           </div>
-      
+        </div>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default Location
+export default Location;
