@@ -19,7 +19,7 @@ const Skills = ({skills, setSkills}) => {
       };
   return (
     <>
-    <div className='px-2 lg:px-4 flex flex-col'>
+    <div className='px-2 lg:px-4 flex flex-col lg:mt-8'>
       <TextField
             value={mySkill || ""}
             fullWidth

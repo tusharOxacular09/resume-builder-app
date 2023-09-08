@@ -122,7 +122,7 @@ const Education = ({
 
       <div className="flex flex-col w-full items-center p-2 mt-2 lg:mt-4">
         <p className="font-semibold border-b-2 mb-2 text-lg border-gray-600">
-          Work Experiences
+          Education
         </p>
         {educationList.map((workExp, index) => (
           <div

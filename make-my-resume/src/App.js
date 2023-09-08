@@ -11,10 +11,15 @@ import {
   initialUserAddress,
   user_work_experience,
   user_education,
+  project_details,
 } from "./objects/NewUserDetailsObject";
 import WorkExperience from "./components/Build/Input/WorkExperience";
 import Skills from "./components/Build/Input/Skills";
 import Education from "./components/Build/Input/Education";
+import Projects from "./components/Build/Input/Projects";
+import Certifications from "./components/Build/Input/Certifications";
+import Others from "./components/Build/Input/Others";
+import CustomDetails from "./components/Build/Input/CustomDetails";
 
 function App() {
   const [personalDetails, setPersonalDetails] = useState(() => {
@@ -36,6 +41,11 @@ function App() {
     const myEducation = JSON.parse(localStorage.getItem("My_Education"));
     return myEducation || [];
   });
+
+  const [projectsList, setProjectsList] = useState(() => {
+     const myProjects = JSON.parse(localStorage.getItem("My_Projects"));
+     return myProjects || [];
+  }); 
 
   const [workExpList, setWorkExpList] = useState(() => {
     const myExperience = JSON.parse(
@@ -68,6 +78,7 @@ function App() {
                 workExpList={workExpList}
                 skills={skills}
                 educationList={educationList}
+                projectsList={projectsList}
               />
             }
           >
@@ -114,6 +125,22 @@ function App() {
             <Route
               path="skills"
               element={<Skills setSkills={setSkills} skills={skills} />}
+            ></Route>
+            <Route
+              path="projects"
+              element={<Projects projectsList={projectsList} setProjectsList={setProjectsList} />}
+            ></Route>
+            <Route
+              path="certifications"
+              element={<Certifications/>}
+            ></Route>
+            <Route
+              path="others"
+              element={<Others/>}
+            ></Route>
+            <Route
+              path="custom-details"
+              element={<CustomDetails/>}
             ></Route>
             <Route path=":id" element={<div>OK!</div>} />
           </Route>

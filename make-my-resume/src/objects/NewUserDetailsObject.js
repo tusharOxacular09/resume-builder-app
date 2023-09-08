@@ -31,3 +31,10 @@ export const user_education = {
   end_date: "",
   summery: "",
 }
+
+export const project_details = {
+  name: "",
+  description: "",
+  website: "",
+  summery: "",
+}

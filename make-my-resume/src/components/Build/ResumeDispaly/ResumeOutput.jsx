@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import UserContext from '../ContextAPI'
 
-const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educationList}) => {
+const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educationList, projectsList}) => {
   const [image, setImage] = useContext(UserContext)
   
   return (
@@ -62,6 +62,22 @@ const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educa
                     <p>{`${education.start_date} to ${education.end_date}`}</p>
                     <p>{education.summery}</p>
 
+                  </div>
+                )
+            })
+          }
+      </div>
+
+      <p className='text-2xl font-semibold mb-1'>Projects</p>
+      <div className='w-full flex flex-col border-t mb-2'>
+          {
+            projectsList.map((project, index) => {
+                return(
+                  <div key={index} className=''>
+                    <p className='text-lg font-bold'>{project.name}</p>
+                    <h5>{project.description}</h5>
+                    <p>{project.website}</p>
+                    <p>{project.summery}</p>
                   </div>
                 )
             })
