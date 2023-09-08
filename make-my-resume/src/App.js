@@ -11,7 +11,6 @@ import {
   initialUserAddress,
   user_work_experience,
   user_education,
-  project_details,
 } from "./objects/NewUserDetailsObject";
 import WorkExperience from "./components/Build/Input/WorkExperience";
 import Skills from "./components/Build/Input/Skills";
@@ -63,6 +62,24 @@ function App() {
     return mySkills || [];
   });
 
+  const [certificationList, setCertificationList ] = useState(() => {
+    const myCertificates = JSON.parse(localStorage.getItem("My_Certificates"));
+    return myCertificates || [];
+  })
+
+  const [languageList, setLanguageList] = useState(() => {
+    const myLanguages = JSON.parse(localStorage.getItem("My_Languages"));
+    return myLanguages || [];
+  })
+
+  const [awardList, setAwardList] = useState(() => {
+     const myAwards = JSON.parse(localStorage.getItem("My_Awards"));
+     return myAwards || [];
+  })
+  const [hobbies, setHobbies] = useState(()=>{
+    const myHobbies = JSON.parse(localStorage.getItem("My_Hobbies"));
+    return myHobbies || [];
+  })
   return (
     <div>
       <NavBar />
@@ -79,6 +96,10 @@ function App() {
                 skills={skills}
                 educationList={educationList}
                 projectsList={projectsList}
+                certificationList={certificationList}
+                languageList={languageList}
+                awardList={awardList}
+                hobbies={hobbies}
               />
             }
           >
@@ -132,11 +153,11 @@ function App() {
             ></Route>
             <Route
               path="certifications"
-              element={<Certifications/>}
+              element={<Certifications certificationList={certificationList} setCertificationList={setCertificationList}/>}
             ></Route>
             <Route
               path="others"
-              element={<Others/>}
+              element={<Others languageList={languageList} setLanguageList={setLanguageList} awardList={awardList} setAwardList={setAwardList} hobbies={hobbies} setHobbies={setHobbies} />}
             ></Route>
             <Route
               path="custom-details"

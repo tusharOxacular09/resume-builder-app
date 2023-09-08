@@ -4,7 +4,7 @@ import ResumeOutput from "./ResumeDispaly/ResumeOutput";
 import UserContext from "./ContextAPI";
 import { Link, Outlet } from "react-router-dom";
 
-const BuildResume = ({ personalDetails, userLocation, workExpList, skills, educationList, projectsList}) => {
+const BuildResume = ({ personalDetails, userLocation, workExpList, skills, educationList, projectsList, certificationList, languageList, awardList, hobbies }) => {
   const [background, setBackground] = useState("bg-white");
 
   // User Image Avatar
@@ -29,7 +29,11 @@ const BuildResume = ({ personalDetails, userLocation, workExpList, skills, educa
     localStorage.setItem("My_Profile_Picture", JSON.stringify(userImage));
     localStorage.setItem("My_Education", JSON.stringify(educationList));
     localStorage.setItem("My_Projects", JSON.stringify(projectsList));
-  }, [personalDetails, userImage, userLocation, workExpList, skills, educationList, projectsList]);
+    localStorage.setItem("My_Certificates", JSON.stringify(certificationList));
+    localStorage.setItem("My_Languages", JSON.stringify(languageList));
+    localStorage.setItem("My_Awards", JSON.stringify(awardList));
+    localStorage.setItem("My_Hobbies", JSON.stringify(hobbies));
+  }, [personalDetails, userImage, userLocation, workExpList, skills, educationList, projectsList, certificationList, languageList, awardList, hobbies]);
 
   const navElementsStyle = "inline-block max-lg:text-sm text-white text-center py-2 px-2 lg:px-4 hover:bg-amber-500 focus:bg-amber-500 focus:border focus:rounded-xl font-bold m-1 rounded";
   return (
@@ -51,7 +55,7 @@ const BuildResume = ({ personalDetails, userLocation, workExpList, skills, educa
             <Outlet />
           </div>
           <div className="w-full lg:w-3/6 h-full">
-            <ResumeOutput personalDetails={personalDetails} userLocation={userLocation} workExpList={workExpList} skills={skills} educationList={educationList} projectsList={projectsList} />
+            <ResumeOutput personalDetails={personalDetails} userLocation={userLocation} workExpList={workExpList} skills={skills} educationList={educationList} projectsList={projectsList} certificationList={certificationList} languageList={languageList} awardList={awardList} hobbies={hobbies} />
           </div>
           <div className="w-full lg:w-1/6 h-full max-lg:border-t lg:border-l-2 border-slate-400">
             <ColorPicker setBackground={setBackground} />

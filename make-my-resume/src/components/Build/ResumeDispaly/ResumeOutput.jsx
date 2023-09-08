@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import UserContext from '../ContextAPI'
 
-const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educationList, projectsList}) => {
+const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educationList, projectsList, certificationList, languageList, awardList, hobbies }) => {
   const [image, setImage] = useContext(UserContext)
   
   return (
@@ -22,9 +22,9 @@ const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educa
           <p>{userLocation.country}</p>
       </div>
 
-
+      <div className='flex justify-between items-center'>
+      <div className='w-full flex flex-col border-b mb-2'>
       <p className='text-2xl font-semibold mb-1'>Work Experience</p>
-      <div className='w-full flex flex-col border-t mb-2'>
           {
             workExpList.map((experience, index) => {
                return(
@@ -36,6 +36,20 @@ const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educa
                )
             })
           }
+      </div>
+      <div className='w-full flex flex-col border-b mb-2'>
+      <p className='text-2xl font-semibold mb-1'>Certificates</p>
+          {
+            certificationList.map((certificates, index) => {
+               return(
+                  <div key={index} className='flex flex-col'>
+                     <p className='text-xl font-semibold mb-1'>{certificates.name}</p>
+                     <p className='text-lg font-medium text-gray-400 mb-1'>{certificates.description}</p>
+                   </div>
+               )
+            })
+          }
+      </div>
       </div>
       <p className='text-2xl font-semibold mb-1'>Skills</p>
       <div className='w-full flex flex-col border-t mb-2'>
@@ -61,7 +75,45 @@ const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educa
                     <p>Grade: {education.grade}</p>
                     <p>{`${education.start_date} to ${education.end_date}`}</p>
                     <p>{education.summery}</p>
+                  </div>
+                )
+            })
+          }
+      </div>
+      <p className='text-2xl font-semibold mb-1'>Languages</p>
+      <div className='w-full flex flex-col border-t mb-2'>
+          {
+            languageList.map((language, index) => {
+                return(
+                  <div key={index} className=''>
+                    <p className='text-lg font-bold'>{language.name}</p>
+                    <h5>{language.level}</h5>
+                  </div>
+                )
+            })
+          }
+      </div>
 
+      <p className='text-2xl font-semibold mb-1'>Awards</p>
+      <div className='w-full flex flex-col border-t mb-2'>
+          {
+            awardList.map((award, index) => {
+                return(
+                  <div key={index} className=''>
+                    <p className='text-lg font-bold'>{award.award_name}</p>
+                    <h5>{award.description}</h5>
+                  </div>
+                )
+            })
+          }
+      </div>
+      <p className='text-2xl font-semibold mb-1'>Hobbies and Interests</p>
+      <div className='w-full flex flex-col border-t mb-2'>
+          {
+            hobbies.map((hobby, index) => {
+                return(
+                  <div key={index} className=''>
+                    <p className='text-lg font-bold'>{hobby}</p>
                   </div>
                 )
             })

@@ -36,7 +36,7 @@ const Education = ({
   return (
     <div>
       <div className="flex flex-col items-center justify-center p-2">
-        <form className="lg:p-8">
+        <form className="lg:px-8 pt-8">
           <div className="flex flex-col items-center justify-center">
             <div className="flex gap-4 mb-4">
               <TextField

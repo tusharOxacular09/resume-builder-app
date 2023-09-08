@@ -38,3 +38,18 @@ export const project_details = {
   website: "",
   summery: "",
 }
+
+export const user_certificate = {
+  name: "",
+  description: "",
+}
+
+export const user_language = {
+  name: "",
+  level: "",
+}
+
+export const user_award = {
+  award_name: "",
+  description: "",
+}
