@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { user_language, user_award } from "../../../objects/NewUserDetailsObject";
+import { Link } from "react-router-dom";
 
 const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbies, setHobbies }) => {
   const [language, setLanguage] = useState(user_language);
@@ -206,6 +207,20 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
           ))}
         </div>
       </div>
+      <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-4">
+          <Link
+            to={"/build/certifications"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+          >
+            Prev
+          </Link>
+          <Link
+            to={"/build/custom-details"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+          >
+            Next
+          </Link>
+        </div>
     </div>
   );
 };

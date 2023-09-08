@@ -53,3 +53,8 @@ export const user_award = {
   award_name: "",
   description: "",
 }
+
+export const new_details = {
+  title: "",
+  description: "",
+}

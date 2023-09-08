@@ -79,6 +79,11 @@ function App() {
   const [hobbies, setHobbies] = useState(()=>{
     const myHobbies = JSON.parse(localStorage.getItem("My_Hobbies"));
     return myHobbies || [];
+  });
+
+  const [newDetails, setNewDetails] = useState(() => {
+     const otherDetails = JSON.parse(localStorage.getItem("New_Details"));
+     return otherDetails || [];
   })
   return (
     <div>
@@ -100,6 +105,7 @@ function App() {
                 languageList={languageList}
                 awardList={awardList}
                 hobbies={hobbies}
+                newDetails={newDetails}
               />
             }
           >
@@ -161,7 +167,7 @@ function App() {
             ></Route>
             <Route
               path="custom-details"
-              element={<CustomDetails/>}
+              element={<CustomDetails newDetails={newDetails} setNewDetails={setNewDetails} />}
             ></Route>
             <Route path=":id" element={<div>OK!</div>} />
           </Route>

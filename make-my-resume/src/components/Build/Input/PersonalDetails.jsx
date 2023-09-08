@@ -3,23 +3,21 @@ import ImageCropper from "./ImageCropper";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 
-
 const PersonalDetails = ({ setPersonalDetails, personalDetails }) => {
-  
   const handleChange = (e) => {
-     const {name, value} = e.target
-     setPersonalDetails((prev) => {
-       return { ...prev, [name]: value}
-     })
-  }
+    const { name, value } = e.target;
+    setPersonalDetails((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center p-2">
-        <div className="flex flex-col items-center justify-center mb-2 max-lg:mb-4">
-          <p className="text-lg font-semibold mb-1">Upload Your Image.....</p>
-          <ImageCropper />
-        </div>
-        <form className="lg:p-8">
+      <div className="flex flex-col items-center justify-center mb-2 max-lg:mb-4">
+        <p className="text-lg font-semibold mb-1">Upload Your Image.....</p>
+        <ImageCropper />
+      </div>
+      <form className="lg:p-8">
         <div className="flex flex-col items-center justify-center">
           <div className="flex gap-3 mb-3">
             <TextField
@@ -92,11 +90,18 @@ const PersonalDetails = ({ setPersonalDetails, personalDetails }) => {
             type="date"
             onChange={handleChange}
           />
-          {/* <Link to='/' className="block mt-4 w-24 text-center bg-amber-400 p-2 rounded-xl font-bold text-base lg:text-lg hover:bg-amber-500">Next</Link> */}
+        </div>
+        <div className="relative w-full mt-4 flex">
+          <Link
+            to={"/build/location"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 absolute right-0 font-semibold"
+          >
+            Next
+          </Link>
         </div>
       </form>
     </div>
   );
 };
 
-export default PersonalDetails
+export default PersonalDetails;

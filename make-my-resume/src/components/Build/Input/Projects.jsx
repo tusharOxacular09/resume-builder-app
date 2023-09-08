@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextField } from '@mui/material';
 import { project_details } from '../../../objects/NewUserDetailsObject';
+import { Link } from "react-router-dom";
 
 const Projects = ({ projectsList, setProjectsList }) => {
     const [project, setProject] = useState(() => project_details);
@@ -95,6 +96,20 @@ const Projects = ({ projectsList, setProjectsList }) => {
           </div>
         ))}
       </div>
+      <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10">
+          <Link
+            to={"/build/education"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+          >
+            Prev
+          </Link>
+          <Link
+            to={"/build/certifications"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+          >
+            Next
+          </Link>
+        </div>
     </div>
   )
 }

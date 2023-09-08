@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { user_certificate } from "../../../objects/NewUserDetailsObject";
+import { Link } from "react-router-dom";
 
 const Certifications = ({certificationList, setCertificationList}) => {
   const [myCertificate, setMyCertificate] = useState(() => user_certificate)
@@ -72,6 +73,20 @@ const Certifications = ({certificationList, setCertificationList}) => {
           </div>
         ))}
       </div>
+      <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10">
+          <Link
+            to={"/build/projects"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+          >
+            Prev
+          </Link>
+          <Link
+            to={"/build/others"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+          >
+            Next
+          </Link>
+        </div>
     </div>
   );
 };

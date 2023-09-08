@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
 
 const Skills = ({skills, setSkills}) => {
     const [mySkill, setMySkill] = useState("");
@@ -49,6 +50,20 @@ const Skills = ({skills, setSkills}) => {
           </div>
         ))}
       </div>
+      <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10">
+          <Link
+            to={"/build/work-experience"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+          >
+            Prev
+          </Link>
+          <Link
+            to={"/build/education"}
+            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+          >
+            Next
+          </Link>
+        </div> 
     </>
   )
 }
