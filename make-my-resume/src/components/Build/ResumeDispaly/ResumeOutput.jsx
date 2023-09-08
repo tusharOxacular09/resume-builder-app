@@ -26,9 +26,9 @@ const ResumeOutput = ({personalDetails, userLocation, workExpList}) => {
       <p className='text-2xl font-semibold mb-1'>Work Experience</p>
       <div className='w-full flex flex-col border-t mb-2'>
           {
-            workExpList.map((experience) => {
+            workExpList.map((experience, index) => {
                return(
-                  <div className='flex flex-col'>
+                  <div key={index} className='flex flex-col'>
                      <p className='text-xl font-semibold mb-1'>{experience.company}</p>
                      <p className='text-lg font-medium text-gray-400 mb-1'>{experience.position}</p>
                      <p className='text-sm mb-1'>{experience.job_summery}</p>
