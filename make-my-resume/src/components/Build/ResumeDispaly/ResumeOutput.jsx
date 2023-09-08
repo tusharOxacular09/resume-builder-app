@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import UserContext from '../ContextAPI'
 
-const ResumeOutput = ({personalDetails, userLocation, workExpList}) => {
+const ResumeOutput = ({personalDetails, userLocation, workExpList, skills, educationList}) => {
   const [image, setImage] = useContext(UserContext)
   
   return (
@@ -34,6 +34,36 @@ const ResumeOutput = ({personalDetails, userLocation, workExpList}) => {
                      <p className='text-sm mb-1'>{experience.job_summery}</p>
                    </div>
                )
+            })
+          }
+      </div>
+      <p className='text-2xl font-semibold mb-1'>Skills</p>
+      <div className='w-full flex flex-col border-t mb-2'>
+          {
+            skills.map((skill, index) => {
+               return(
+                  <div key={index} className='flex flex-col'>
+                     <p>{skill}</p>
+                  </div>
+               )
+            })
+          }
+      </div>
+      <p className='text-2xl font-semibold mb-1'>Education</p>
+      <div className='w-full flex flex-col border-t mb-2'>
+          {
+            educationList.map((education, index) => {
+                return(
+                  <div key={index} className=''>
+                    <p className='text-lg font-bold'>{education.institution}</p>
+                    <h5>{education.degree}</h5>
+                    <p>{education.area_of_study}</p>
+                    <p>Grade: {education.grade}</p>
+                    <p>{`${education.start_date} to ${education.end_date}`}</p>
+                    <p>{education.summery}</p>
+
+                  </div>
+                )
             })
           }
       </div>

@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SmallNav from "./SmallNav";
 
-const NavBar = ({ setSpace }) => {
+const NavBar = () => {
   const [smallNav, setSmallNav] = useState(false);
 
   const handleClick = () => {
     if (smallNav === false) {
       setSmallNav(true);
-      setSpace(true);
     } else {
       setSmallNav(false);
-      setSpace(false);
     }
   };
 
@@ -54,7 +52,7 @@ const NavBar = ({ setSpace }) => {
           <div className="w-7 h-0.5 bg-white mt-2"></div>
         </div>
       </div>
-      <div>{smallNav && <SmallNav />}</div>
+      <div>{smallNav && <SmallNav setSmallNav={setSmallNav}/>}</div>
     </div>
   );
 };

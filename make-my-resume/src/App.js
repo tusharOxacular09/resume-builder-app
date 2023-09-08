@@ -10,11 +10,13 @@ import {
   initialPersonalDetails,
   initialUserAddress,
   user_work_experience,
+  user_education,
 } from "./objects/NewUserDetailsObject";
 import WorkExperience from "./components/Build/Input/WorkExperience";
+import Skills from "./components/Build/Input/Skills";
+import Education from "./components/Build/Input/Education";
 
 function App() {
-  const [space, setSpace] = useState();
   const [personalDetails, setPersonalDetails] = useState(() => {
     const saved = localStorage.getItem("My_Personal_Details");
     const initialValue = JSON.parse(saved);
@@ -27,20 +29,36 @@ function App() {
     return savedLocation || initialUserAddress;
   });
 
-  const [workExpList, setWorkExpList] = useState(() => {
-    const myExperience = JSON.parse(localStorage.getItem("My_Work_Experiences"))
-    return myExperience || []
-  })
+  const [userEducation, setUserEducation] = useState(() => {
+    return user_education;
+  });
+  const [educationList, setEducationList] = useState(() => {
+    const myEducation = JSON.parse(localStorage.getItem("My_Education"));
+    return myEducation || [];
+  });
 
-  const [workExperience, setWorkExperience] = useState(()=> {
-      return user_work_experience
-  })
+  const [workExpList, setWorkExpList] = useState(() => {
+    const myExperience = JSON.parse(
+      localStorage.getItem("My_Work_Experiences")
+    );
+    return myExperience || [];
+  });
+
+  const [workExperience, setWorkExperience] = useState(() => {
+    return user_work_experience;
+  });
+
+  const [skills, setSkills] = useState(() => {
+    const mySkills = JSON.parse(localStorage.getItem("My_Skills"));
+    return mySkills || [];
+  });
+
   return (
     <div>
-      <NavBar setSpace={setSpace} />
+      <NavBar />
       <div>
         <Routes>
-          <Route path="/" element={<Home space={space} />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/build"
             element={
@@ -48,7 +66,8 @@ function App() {
                 personalDetails={personalDetails}
                 userLocation={userLocation}
                 workExpList={workExpList}
-                space={space}
+                skills={skills}
+                educationList={educationList}
               />
             }
           >
@@ -73,12 +92,32 @@ function App() {
             <Route
               path="work-experience"
               element={
-                <WorkExperience workExperience={workExperience} setWorkExperience={setWorkExperience} workExpList={workExpList} setWorkExpList={setWorkExpList}/>
+                <WorkExperience
+                  workExperience={workExperience}
+                  setWorkExperience={setWorkExperience}
+                  workExpList={workExpList}
+                  setWorkExpList={setWorkExpList}
+                />
               }
             />
+            <Route
+              path="education"
+              element={
+                <Education
+                  userEducation={userEducation}
+                  setUserEducation={setUserEducation}
+                  educationList={educationList}
+                  setEducationList={setEducationList}
+                />
+              }
+            />
+            <Route
+              path="skills"
+              element={<Skills setSkills={setSkills} skills={skills} />}
+            ></Route>
             <Route path=":id" element={<div>OK!</div>} />
           </Route>
-          <Route path="/history" element={<History space={space} />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </div>
     </div>

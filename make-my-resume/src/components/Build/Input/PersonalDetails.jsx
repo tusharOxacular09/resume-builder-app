@@ -92,7 +92,7 @@ const PersonalDetails = ({ setPersonalDetails, personalDetails }) => {
             type="date"
             onChange={handleChange}
           />
-          <Link to='/' className="block mt-4 w-24 text-center bg-amber-400 p-2 rounded-xl font-bold text-base lg:text-lg hover:bg-amber-500">Next</Link>
+          {/* <Link to='/' className="block mt-4 w-24 text-center bg-amber-400 p-2 rounded-xl font-bold text-base lg:text-lg hover:bg-amber-500">Next</Link> */}
         </div>
       </form>
     </div>

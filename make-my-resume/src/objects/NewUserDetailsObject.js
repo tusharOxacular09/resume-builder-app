@@ -21,3 +21,13 @@ export const user_work_experience = {
   position: "",
   job_summery: "",
 }
+
+export const user_education = {
+  institution: "",
+  degree: "",
+  area_of_study: "",
+  grade: "",
+  start_date: "",
+  end_date: "",
+  summery: "",
+}

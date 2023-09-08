@@ -26,7 +26,7 @@ const WorkExperience = ({
 
   const deleteWorkExperience = (index) => {
     let newList = workExpList.filter((element, i) => {
-      if (i != index) {
+      if (i !== index) {
         return element;
       }
     });

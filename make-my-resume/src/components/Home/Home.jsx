@@ -3,11 +3,10 @@ import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
 import CvSlider from "./CvSlider";
 
-const Home = ({ space }) => {
+const Home = () => {
   const [image, setImage] = useState("./images/cv10.jpg");
-  const setMargin = space ? "lg:mt-20" : "mt-20 max-lg:pt-2";
   return (
-    <div className={setMargin}>
+    <div className='w-full mt-24'>
       <div className="lg:flex items-center">
         <div className="lg:w-1/2 h-full ml-6 lg:ml-20 mr-2 max-md:mt-2">
           <h1 className="text-2xl md:text-3xl lg:text-6xl font-bold leding-tight lg:leading-snug">
