@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import UserContext from "../ContextAPI";
 
 const ResumeFormat1 = ({
@@ -131,12 +131,100 @@ const ResumeFormat1 = ({
                 <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
                   SKILLS
                 </p>
-                <div className="mt-1 flex flex-wrap">
-                     {
-                      skills.map((skill) => {
-                         return <p className="relative text-base font-medium w-1/2 pt-2">{skill}</p>
-                      })
-                     }
+                <div className="flex flex-wrap">
+                  {skills.map((skill) => {
+                    return (
+                      <p className="relative text-base font-medium w-1/2 pt-2">
+                        {skill}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Certification */}
+          <div>
+            {certificationList.length !== 0 && (
+              <div>
+                <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
+                  CERTIFICATION
+                </p>
+                <div className="pt-2 flex flex-col">
+                  {certificationList.map((certificate) => {
+                    return (
+                      <>
+                        <p className="text-base font-medium">
+                          {certificate.name}
+                        </p>
+                        <p className="text-sm pb-1">
+                          {certificate.description}
+                        </p>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Languages */}
+          <div>
+            {languageList.length !== 0 && (
+              <div>
+                <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
+                  LANGUAGES
+                </p>
+                <div className="pt-2 grid grid-cols-2">
+                  {languageList.map((language) => {
+                    return (
+                      <div className="flex gap-1 items-center">
+                        <p className="text-base font-medium">{language.name}</p>
+                        {parseInt(language.level) < 5 && (
+                          <p className="text-xs font-semibold bg-blue-300 px-2 pb-0.5 rounded">
+                            Basic
+                          </p>
+                        )}
+                        {parseInt(language.level) > 5 &&
+                          parseInt(language.level) < 9 && (
+                            <p className="text-xs font-semibold bg-blue-300 px-2 pb-0.5 rounded">
+                              Average
+                            </p>
+                          )}
+                        {parseInt(language.level) >= 9 && (
+                          <p className="text-xs font-semibold bg-blue-300 px-2 pb-0.5 rounded">
+                            Excellent
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Awards */}
+          <div>
+            {awardList.length !== 0 && (
+              <div className="mt-1">
+                <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
+                  AWARDS
+                </p>
+                <div className="pt-2 flex flex-col">
+                  {awardList.map((award) => {
+                    return (
+                      <div className="flex justify-center flex-col">
+                        <p className="text-base font-medium">
+                          {award.award_name}
+                        </p>
+                        {award.description !== "" && (
+                          <p className="text-sm">{award.description}</p>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -184,7 +272,7 @@ const ResumeFormat1 = ({
             {educationList.length !== 0 && (
               <div>
                 <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
-                  Education
+                  EDUCATION
                 </p>
                 <div>
                   {educationList.map((education) => {
@@ -215,6 +303,94 @@ const ResumeFormat1 = ({
             )}
           </div>
 
+          {/* Project */}
+          <div className="mt-2">
+            {projectsList.length !== 0 && (
+              <div>
+                <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
+                  PROJECTS
+                </p>
+                <div>
+                  {projectsList.map((project) => {
+                    return (
+                      <div>
+                        <p className="font-semibold text-base lg:text-lg">
+                          {project.name}
+                        </p>
+                        <p className="text-xs font-semibold text-gray-500">
+                          {project.description}
+                        </p>
+                        <p className="text-sm lg:text-base mt-1">
+                          {project.summery}
+                        </p>
+                        {project.website !== "" && (
+                          <div className="flex gap-1 items-center text-blue-500 text-sm font-medium py-1">
+                            <svg
+                              width="20px"
+                              height="20px"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7 8L3 11.6923L7 16M17 8L21 11.6923L17 16M14 4L10 20"
+                                stroke="#000000"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                            <a href={project.website} target="_blank">
+                              Source of the project....
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Extra Details */}
+          <div className="mt-2">
+            {newDetails.length !== 0 && (
+              <div>
+                <div className="flex flex-col">
+                  {newDetails.map((details) => {
+                    return (
+                      <div className="flex flex-col justify-center">
+                        {
+                           details.title &&
+                          <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
+                          {details.title.toUpperCase()}
+                        </p>
+                        }
+                        <p className="text-sm">{details.description}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Hobbies */}
+          <div className="mt-2">
+            {hobbies.length !== 0 && (
+              <div>
+                <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
+                  HOBBIES
+                </p>
+                <div className="grid grid-cols-4 text-sm">
+                  {hobbies.map((hobby) => (
+                    <p>{hobby}</p>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -67,7 +67,7 @@ const BuildResume = ({
     <UserContext.Provider value={[userImage, setUserImage]}>
       <div className="w-full h-screen mt-20 pt-2">
         <div className="w-full h-full lg:flex">
-          <div className="w-full lg:w-2/6 h-fit max-lg:border-b lg:border-r-2 border-slate-400">
+          <div className="w-full lg:w-2/6 h-fit pb-10 max-lg:border-b lg:border-r-2 border-slate-400">
             <div className="bg-amber-400 overflow-auto whitespace-nowrap max-lg:mb-4">
               <Link to={"/build/personaldetails"} className={navElementsStyle}>
                 Personal Info.
