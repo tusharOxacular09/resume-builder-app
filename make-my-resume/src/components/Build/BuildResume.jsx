@@ -17,8 +17,8 @@ const BuildResume = ({
   hobbies,
   newDetails,
 }) => {
-  const [background, setBackground] = useState("bg-white");
-
+  const [background, setBackground] = useState("bg-skys1");
+  const [resumeFormat, setResumeFormat] = useState(1);
   // User Image Avatar
   const [userImage, setUserImage] = useState(() => {
     const image = localStorage.getItem("My_Profile_Picture");
@@ -62,13 +62,13 @@ const BuildResume = ({
   ]);
 
   const navElementsStyle =
-    "inline-block max-lg:text-sm text-white text-center py-2 px-2 lg:px-4 hover:bg-amber-500 focus:bg-amber-500 focus:border focus:rounded-xl font-bold m-1 rounded";
+    "inline-block max-lg:text-sm text-white text-center py-2 px-2 lg:px-4 hover:bg-blue-500 focus:bg-blue-500 focus:border focus:rounded-xl font-bold m-1 rounded";
   return (
     <UserContext.Provider value={[userImage, setUserImage]}>
-      <div className="w-full h-screen mt-20 pt-2">
+      <div className="w-full h-screen mt-20">
         <div className="w-full h-full lg:flex">
-          <div className="w-full lg:w-2/6 h-fit pb-10 max-lg:border-b lg:border-r-2 border-slate-400">
-            <div className="bg-amber-400 overflow-auto whitespace-nowrap max-lg:mb-4">
+          <div className="w-full lg:w-2/6 h-fit pb-10 max-lg:border-b lg:border-r-2 border-slate-400 pt-2">
+            <div className="bg-blue-400 overflow-x-scroll scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-blue-100 whitespace-nowrap max-lg:mb-4">
               <Link to={"/build/personaldetails"} className={navElementsStyle}>
                 Personal Info.
               </Link>
@@ -99,7 +99,7 @@ const BuildResume = ({
             </div>
             <Outlet />
           </div>
-          <div className="w-full h-fit lg:w-3/6 lg:h-[1122px]">
+          <div className="w-full h-fit lg:w-3/6 lg:h-[1122px] max-lg:overflow-y-scroll">
             <ResumeOutput
               personalDetails={personalDetails}
               userLocation={userLocation}
@@ -112,10 +112,12 @@ const BuildResume = ({
               awardList={awardList}
               hobbies={hobbies}
               newDetails={newDetails}
+              background={background}
+              resumeFormat={resumeFormat}
             />
           </div>
           <div className="w-full lg:w-1/6 h-full max-lg:border-t lg:border-l-2 border-slate-400">
-            <ColorPicker setBackground={setBackground} />
+            <ColorPicker setBackground={setBackground} setResumeFormat={setResumeFormat} />
           </div>
         </div>
       </div>

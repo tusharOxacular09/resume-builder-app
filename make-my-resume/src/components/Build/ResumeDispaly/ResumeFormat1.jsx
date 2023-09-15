@@ -13,6 +13,7 @@ const ResumeFormat1 = ({
   awardList,
   hobbies,
   newDetails,
+  background,
 }) => {
   const [image, setImage] = useContext(UserContext);
   const userEmail = personalDetails.email.slice(
@@ -23,17 +24,21 @@ const ResumeFormat1 = ({
   return (
     <div className="w-full h-full">
       <div className="flex border rounded-lg m-2">
-        <div className="w-1/3 h-[1122px] bg-slate-300 rounded-l-lg flex flex-col p-2 lg:px-3">
-          <div className="w-full flex justify-center">
-            <img
-              src={
-                image ||
-                "https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg"
-              }
-              alt=""
-              className="w-24 h-24 border rounded-full mt-1"
-            />
-          </div>
+        <div
+          className={`w-1/3 h-[1122px] ${background} rounded-l-lg flex flex-col p-2 lg:px-3`}
+        >
+          {image !== null && (
+            <div className="w-full flex justify-center">
+              <img
+                src={
+                  image ||
+                  "https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg"
+                }
+                alt=""
+                className="w-24 h-24 border rounded-full mt-1"
+              />
+            </div>
+          )}
           <div className="p-2">
             <p className="text-xl lg:text-3xl font-bold text-center">
               {personalDetails.fullName}
@@ -134,9 +139,7 @@ const ResumeFormat1 = ({
                 <div className="flex flex-wrap">
                   {skills.map((skill) => {
                     return (
-                      <p className="relative text-base font-medium w-1/2 pt-2">
-                        {skill}
-                      </p>
+                      <p className="text-sm font-medium w-1/2 pt-2">{skill}</p>
                     );
                   })}
                 </div>
@@ -176,24 +179,24 @@ const ResumeFormat1 = ({
                 <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
                   LANGUAGES
                 </p>
-                <div className="pt-2 grid grid-cols-2">
+                <div className="pt-2 grid grid-cols-1 lg:grid-cols-2">
                   {languageList.map((language) => {
                     return (
                       <div className="flex gap-1 items-center">
                         <p className="text-base font-medium">{language.name}</p>
                         {parseInt(language.level) < 5 && (
-                          <p className="text-xs font-semibold bg-blue-300 px-2 pb-0.5 rounded">
+                          <p className="text-xs font-semibold bg-blue-300 px-1 pb-0.5 rounded">
                             Basic
                           </p>
                         )}
                         {parseInt(language.level) > 5 &&
                           parseInt(language.level) < 9 && (
-                            <p className="text-xs font-semibold bg-blue-300 px-2 pb-0.5 rounded">
+                            <p className="text-xs font-semibold bg-blue-300 px-1 pb-0.5 rounded">
                               Average
                             </p>
                           )}
                         {parseInt(language.level) >= 9 && (
-                          <p className="text-xs font-semibold bg-blue-300 px-2 pb-0.5 rounded">
+                          <p className="text-xs font-semibold bg-blue-300 px-1 pb-0.5 rounded">
                             Excellent
                           </p>
                         )}
@@ -236,7 +239,7 @@ const ResumeFormat1 = ({
             <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
               PERSONAL SUMMERY
             </p>
-            <p className="text-xs lg:text-base text-black mt-1">
+            <p className="text-xs lg:text-sm text-black mt-1">
               {personalDetails.summery}
             </p>
           </div>
@@ -257,9 +260,7 @@ const ResumeFormat1 = ({
                         <p className="text-sm font-medium lg:text-base text-gray-500">
                           {work.position}
                         </p>
-                        <p className="text-sm lg:text-base mt-1">
-                          {work.job_summery}
-                        </p>
+                        <p className="text-sm mt-1">{work.job_summery}</p>
                       </div>
                     );
                   })}
@@ -292,9 +293,7 @@ const ResumeFormat1 = ({
                             </p>
                           )}
                         </div>
-                        <p className="text-sm lg:text-base mt-1">
-                          {education.summery}
-                        </p>
+                        <p className="text-sm mt-1">{education.summery}</p>
                       </div>
                     );
                   })}
@@ -320,11 +319,9 @@ const ResumeFormat1 = ({
                         <p className="text-xs font-semibold text-gray-500">
                           {project.description}
                         </p>
-                        <p className="text-sm lg:text-base mt-1">
-                          {project.summery}
-                        </p>
+                        <p className="text-sm mt-1">{project.summery}</p>
                         {project.website !== "" && (
-                          <div className="flex gap-1 items-center text-blue-500 text-sm font-medium py-1">
+                          <div className="flex gap-1 items-center text-blue-500 text-xs font-medium py-1">
                             <svg
                               width="20px"
                               height="20px"
@@ -340,9 +337,7 @@ const ResumeFormat1 = ({
                                 stroke-linejoin="round"
                               />
                             </svg>
-                            <a href={project.website} target="_blank">
-                              Source of the project....
-                            </a>
+                            <p>{project.website}</p>
                           </div>
                         )}
                       </div>
@@ -354,19 +349,18 @@ const ResumeFormat1 = ({
           </div>
 
           {/* Extra Details */}
-          <div className="mt-2">
+          <div>
             {newDetails.length !== 0 && (
               <div>
                 <div className="flex flex-col">
                   {newDetails.map((details) => {
                     return (
                       <div className="flex flex-col justify-center">
-                        {
-                           details.title &&
-                          <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
-                          {details.title.toUpperCase()}
-                        </p>
-                        }
+                        {details.title && (
+                          <p className="mt-2 mb-1 font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
+                            {details.title.toUpperCase()}
+                          </p>
+                        )}
                         <p className="text-sm">{details.description}</p>
                       </div>
                     );

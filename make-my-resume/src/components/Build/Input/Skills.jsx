@@ -1,43 +1,51 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 
-const Skills = ({skills, setSkills}) => {
-    const [mySkill, setMySkill] = useState("");
-    const handleClick = (e) => {
-        e.preventDefault();
-        setSkills((prev) => [...prev, mySkill]);
-        setMySkill("");
-    }
+const Skills = ({ skills, setSkills }) => {
+  const [mySkill, setMySkill] = useState("");
+  const handleClick = (e) => {
+    e.preventDefault();
+    setSkills((prev) => [...prev, mySkill]);
+    setMySkill("");
+  };
 
-    const deleteSkills = (index) => {
-        let newList = skills.filter((element, i) => {
-          if (i !== index) {
-            return element;
-          }
-        });
-        setSkills(newList);
-      };
+  const deleteSkills = (index) => {
+    let newList = skills.filter((element, i) => {
+      if (i !== index) {
+        return element;
+      }
+    });
+    setSkills(newList);
+  };
   return (
     <>
-    <div className='px-2 lg:px-4 flex flex-col lg:mt-8'>
-      <TextField
-            value={mySkill || ""}
-            fullWidth
-            required
-            label="Skill"
-            id="outlined-size-medium"
-            size="medium"
-            onChange={(e) => setMySkill(e.target.value)}
-          />
-        <button onClick={handleClick} className='align-right mt-4 text-center bg-amber-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-amber-500'>Add Skill</button>
-    </div>
-    <div className="flex flex-col w-full items-center p-2 mt-2 lg:mt-4">
+      <div className="px-2 lg:px-4 flex flex-col lg:mt-8">
+        <TextField
+          value={mySkill || ""}
+          fullWidth
+          required
+          label="Skill"
+          id="outlined-size-medium"
+          size="medium"
+          onChange={(e) => setMySkill(e.target.value)}
+        />
+        <button
+          onClick={handleClick}
+          className="text-white align-right mt-4 text-center bg-blue-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-blue-500"
+        >
+          Add Skill
+        </button>
+      </div>
+      <div className="flex flex-col w-full items-center p-2 mt-2 lg:mt-4">
         <p className="font-semibold border-b-2 mb-2 text-lg border-gray-600">
           My Skills
         </p>
         {skills.map((skill, index) => (
-          <div key={index} className="border border-amber-400 rounded m-1 flex items-center justify-between gap-4 px-4 py-2">
+          <div
+            key={index}
+            className="border border-blue-400 rounded m-1 flex items-center justify-between gap-4 px-4 py-2"
+          >
             <p>{skill}</p>
             <div
               className="cursor-pointer w-5"
@@ -51,21 +59,21 @@ const Skills = ({skills, setSkills}) => {
         ))}
       </div>
       <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10">
-          <Link
-            to={"/build/work-experience"}
-            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
-          >
-            Prev
-          </Link>
-          <Link
-            to={"/build/education"}
-            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
-          >
-            Next
-          </Link>
-        </div> 
+        <Link
+          to={"/build/work-experience"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Prev
+        </Link>
+        <Link
+          to={"/build/education"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Next
+        </Link>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;

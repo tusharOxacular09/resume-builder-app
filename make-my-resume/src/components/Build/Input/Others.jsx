@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import { user_language, user_award } from "../../../objects/NewUserDetailsObject";
+import {
+  user_language,
+  user_award,
+} from "../../../objects/NewUserDetailsObject";
 import { Link } from "react-router-dom";
 
-const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbies, setHobbies }) => {
+const Others = ({
+  languageList,
+  setLanguageList,
+  awardList,
+  setAwardList,
+  hobbies,
+  setHobbies,
+}) => {
   const [language, setLanguage] = useState(user_language);
   const [award, setAward] = useState(user_award);
   const [userHobby, setUserHobby] = useState("");
@@ -14,7 +24,7 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
     });
 
     setAward((prev) => {
-      return {...prev, [name]:value}
+      return { ...prev, [name]: value };
     });
   };
   const handleLanguage = (e) => {
@@ -35,7 +45,7 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
     e.preventDefault();
     setAwardList((prev) => [...prev, award]);
     setAward(user_award);
-  }
+  };
   const deleteAward = (index) => {
     let newList = awardList.filter((element, i) => {
       if (i !== index) {
@@ -43,13 +53,13 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
       }
     });
     setAwardList(newList);
-  }
+  };
 
   const handleHobbies = (e) => {
     e.preventDefault();
     setHobbies((prev) => [...prev, userHobby]);
     setUserHobby("");
-  }
+  };
 
   const deleteHobby = (index) => {
     let newList = hobbies.filter((element, i) => {
@@ -58,7 +68,7 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
       }
     });
     setHobbies(newList);
-  }
+  };
   return (
     <div className="p-2 max-lg:m-2 lg:p-8">
       <div>
@@ -88,7 +98,7 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
           </div>
           <button
             onClick={handleLanguage}
-            className="mt-4 text-center bg-amber-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-amber-500"
+            className="text-white mt-4 text-center bg-blue-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-blue-500"
           >
             Add New Language
           </button>
@@ -97,7 +107,7 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
           {languageList.map((language, index) => (
             <div
               key={index}
-              className="border border-amber-400 px-2 py-1 gap-4 rounded m-1 flex items-center justify-center"
+              className="border border-blue-400 px-2 py-1 gap-4 rounded m-1 flex items-center justify-center"
             >
               <p>{language.name}</p>
               <div
@@ -143,7 +153,7 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
           </div>
           <button
             onClick={handleAwards}
-            className="mt-4 text-center bg-amber-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-amber-500"
+            className="text-white mt-4 text-center bg-blue-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-blue-500"
           >
             Add New Experience
           </button>
@@ -152,7 +162,7 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
           {awardList.map((award, index) => (
             <div
               key={index}
-              className="border border-amber-400 px-2 py-1 gap-4 rounded m-1 flex items-center justify-center"
+              className="border border-blue-400 px-2 py-1 gap-4 rounded m-1 flex items-center justify-center"
             >
               <p>{award.award_name}</p>
               <div
@@ -172,18 +182,18 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
           Hobbies and Interests
         </p>
         <form className="flex flex-col items-center justify-center">
-            <TextField
-              value={userHobby}
-              required
-              fullWidth
-              label="Hobby or Intrest"
-              id="outlined-size-medium"
-              size="small"
-              onChange={(e) => setUserHobby(e.target.value)}
-            />
+          <TextField
+            value={userHobby}
+            required
+            fullWidth
+            label="Hobby or Intrest"
+            id="outlined-size-medium"
+            size="small"
+            onChange={(e) => setUserHobby(e.target.value)}
+          />
           <button
             onClick={handleHobbies}
-            className="mt-4 text-center bg-amber-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-amber-500"
+            className="text-white mt-4 text-center bg-blue-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-blue-500"
           >
             Add New Hobby
           </button>
@@ -192,7 +202,7 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
           {hobbies.map((hobby, index) => (
             <div
               key={index}
-              className="border border-amber-400 px-2 py-1 gap-4 rounded m-1 flex items-center justify-center"
+              className="border border-blue-400 px-2 py-1 gap-4 rounded m-1 flex items-center justify-center"
             >
               <p>{hobby}</p>
               <div
@@ -208,19 +218,19 @@ const Others = ({ languageList, setLanguageList, awardList, setAwardList, hobbie
         </div>
       </div>
       <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-4">
-          <Link
-            to={"/build/certifications"}
-            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
-          >
-            Prev
-          </Link>
-          <Link
-            to={"/build/custom-details"}
-            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
-          >
-            Next
-          </Link>
-        </div>
+        <Link
+          to={"/build/certifications"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Prev
+        </Link>
+        <Link
+          to={"/build/custom-details"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Next
+        </Link>
+      </div>
     </div>
   );
 };

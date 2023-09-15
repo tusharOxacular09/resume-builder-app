@@ -65,13 +65,13 @@ const Location = ({ setUserLocation, userLocation }) => {
         <div className="w-full mt-2 flex items-center justify-between">
           <Link
             to={"/build/personaldetails"}
-            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
           >
             Prev
           </Link>
           <Link
             to={"/build/work-experience"}
-            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 font-semibold"
+            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
           >
             Next
           </Link>

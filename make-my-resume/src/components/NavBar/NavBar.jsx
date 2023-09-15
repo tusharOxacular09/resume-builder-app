@@ -14,7 +14,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="overflow-hidden relative">
+    <div className="sticky top-0 z-50 overflow-hidden">
       <div className="flex w-full fixed justify-between items-center h-20 bg-nav p-4">
         <div className="flex justify-between items-center">
           <p className="ml-2 text-3xl max-lg:text-2xl font-medium text-white">
@@ -33,7 +33,7 @@ const NavBar = () => {
             Home
           </Link>
           <Link
-            to={"/build"}
+            to={"/build/personaldetails"}
             className="cursor-pointer max-lg:hidden mr-20 hover:border-b-2 hover:border-amber-300"
           >
             Build

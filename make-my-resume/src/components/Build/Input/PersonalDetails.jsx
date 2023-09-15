@@ -94,7 +94,7 @@ const PersonalDetails = ({ setPersonalDetails, personalDetails }) => {
         <div className="relative w-full mt-4 flex">
           <Link
             to={"/build/location"}
-            className="bg-amber-400 px-6 py-2 rounded hover:bg-amber-500 absolute right-0 font-semibold"
+            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 absolute right-0 font-semibold"
           >
             Next
           </Link>
