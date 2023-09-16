@@ -17,7 +17,7 @@ const ResumeFormat4 = ({
   const [image, setImage] = useContext(UserContext);
   return (
     <div className="w-full h-full">
-      <div className="flex flex-col border rounded-lg m-2">
+      <div className="flex flex-col border rounded-lg">
         <div className="py-3 border-b-2 border-gray-600">
           {image !== null && (
             <div className={`flex items-center px-2 lg:px-4`}>

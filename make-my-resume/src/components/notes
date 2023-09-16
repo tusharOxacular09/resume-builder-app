@@ -30,3 +30,11 @@
    - It allows to run the code after the component has been rendered.
   */
   
+
+  // SAVE AS PDF
+  // npm install html2canvas jspdf
+
+  // We can't directly access the DOM elements in React Functional Components so we have to use the useRef() hook.
+  // The work of id in other while selecting DOM element is done by the "ref" attribute.
+  
+  // npm install html2pdf.js

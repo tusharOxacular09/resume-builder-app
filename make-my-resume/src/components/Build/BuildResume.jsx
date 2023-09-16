@@ -99,7 +99,7 @@ const BuildResume = ({
             </div>
             <Outlet />
           </div>
-          <div className="w-full h-fit lg:w-3/6 lg:h-[1122px] max-lg:overflow-y-scroll">
+          <div className="w-full h-fit lg:w-3/6 lg:h-[1123px] max-lg:overflow-y-scroll">
             <ResumeOutput
               personalDetails={personalDetails}
               userLocation={userLocation}

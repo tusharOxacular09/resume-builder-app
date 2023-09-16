@@ -23,9 +23,9 @@ const ResumeFormat1 = ({
 
   return (
     <div className="w-full h-full">
-      <div className="flex border rounded-lg m-2">
+      <div className="flex border rounded-lg">
         <div
-          className={`w-1/3 h-[1122px] ${background} rounded-l-lg flex flex-col p-2 lg:px-3`}
+          className={`w-1/3 h-[1123px] ${background} rounded-l-lg flex flex-col p-2 lg:px-3`}
         >
           {image !== null && (
             <div className="w-full flex justify-center">

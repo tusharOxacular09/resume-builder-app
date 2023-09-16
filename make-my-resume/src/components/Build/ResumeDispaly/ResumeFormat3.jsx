@@ -18,7 +18,7 @@ const ResumeFormat3 = ({
   const [image, setImage] = useContext(UserContext);
   return (
     <div className="w-full h-full">
-      <div className="flex flex-col border rounded-lg m-2">
+      <div className="flex flex-col border rounded-lg">
         {image !== null && (
           <div className={`flex items-center ${background} p-4`}>
             <div className="flex items-end justify-start w-2/12">
