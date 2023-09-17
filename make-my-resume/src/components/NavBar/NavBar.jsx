@@ -38,12 +38,6 @@ const NavBar = () => {
           >
             Build
           </Link>
-          <Link
-            to={"/history"}
-            className="cursor-pointer max-lg:hidden mr-16 hover:border-b-2 hover:border-amber-300"
-          >
-            History
-          </Link>
         </div>
 
         <div onClick={handleClick} className="lg:hidden cursor-pointer">
@@ -52,7 +46,7 @@ const NavBar = () => {
           <div className="w-7 h-0.5 bg-white mt-2"></div>
         </div>
       </div>
-      <div>{smallNav && <SmallNav setSmallNav={setSmallNav}/>}</div>
+      <div>{smallNav && <SmallNav setSmallNav={setSmallNav} />}</div>
     </div>
   );
 };

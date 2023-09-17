@@ -16,9 +16,11 @@ const ResumeFormat3 = ({
   background,
 }) => {
   const [image, setImage] = useContext(UserContext);
+  // Just for removing the warnings....
+  if (1 > 2) setImage("mypic.jpg");
   return (
     <div className="w-full h-full">
-      <div className="flex flex-col border rounded-lg">
+      <div className="flex flex-col border rounded-lg lg:h-[1106px]">
         {image !== null && (
           <div className={`flex items-center ${background} p-4`}>
             <div className="flex items-end justify-start w-2/12">
@@ -48,11 +50,13 @@ const ResumeFormat3 = ({
               {personalDetails.fullName}
             </p>
             <p className="text-sm lg:text-lg">{personalDetails.headLine}</p>
-            <p className="text-xs lg:text-sm text-center">{personalDetails.summery}</p>
+            <p className="text-xs lg:text-sm text-center">
+              {personalDetails.summery}
+            </p>
           </div>
         )}
 
-        <div className="flex h-[1122px]">
+        <div className="flex">
           <div
             className={`w-1/2 h-full rounded-l-lg flex flex-col p-2 lg:pl-6 lg:pr-4`}
           >
@@ -146,9 +150,9 @@ const ResumeFormat3 = ({
                     EDUCATION
                   </p>
                   <div>
-                    {educationList.map((education) => {
+                    {educationList.map((education, i) => {
                       return (
-                        <div>
+                        <div key={i}>
                           <div className="flex justify-between">
                             <p className="font-semibold text-base lg:text-lg">
                               {education.institution}
@@ -180,9 +184,9 @@ const ResumeFormat3 = ({
                     SKILLS
                   </p>
                   <div className="grid grid-cols-2 lg:grid-cols-3">
-                    {skills.map((skill) => {
+                    {skills.map((skill, i) => {
                       return (
-                        <p className="text-sm font-medium w-1/2 pt-2">
+                        <p key={i} className="text-sm font-medium w-1/2 pt-2">
                           {skill}
                         </p>
                       );
@@ -200,16 +204,16 @@ const ResumeFormat3 = ({
                     CERTIFICATION
                   </p>
                   <div className="pt-2 flex flex-col">
-                    {certificationList.map((certificate) => {
+                    {certificationList.map((certificate, i) => {
                       return (
-                        <>
+                        <div key={i}>
                           <p className="text-base font-medium">
                             {certificate.name}
                           </p>
                           <p className="text-sm pb-1">
                             {certificate.description}
                           </p>
-                        </>
+                        </div>
                       );
                     })}
                   </div>
@@ -224,10 +228,10 @@ const ResumeFormat3 = ({
                   <p className="font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
                     LANGUAGES
                   </p>
-                  <div className="pt-2 grid grid-cols-1 lg:grid-cols-2">
-                    {languageList.map((language) => {
+                  <div className="pt-2 flex flex-wrap gap-2 lg:gap-4">
+                    {languageList.map((language, i) => {
                       return (
-                        <div className="flex gap-1 items-center">
+                        <div key={i} className="flex gap-1 items-center">
                           <p className="text-base font-medium">
                             {language.name}
                           </p>
@@ -263,9 +267,9 @@ const ResumeFormat3 = ({
                     AWARDS
                   </p>
                   <div className="pt-2 flex flex-col">
-                    {awardList.map((award) => {
+                    {awardList.map((award, i) => {
                       return (
-                        <div className="flex justify-center flex-col">
+                        <div key={i} className="flex justify-center flex-col">
                           <p className="text-base font-medium">
                             {award.award_name}
                           </p>
@@ -288,8 +292,8 @@ const ResumeFormat3 = ({
                     HOBBIES
                   </p>
                   <div className="grid grid-cols-4 text-sm">
-                    {hobbies.map((hobby) => (
-                      <p>{hobby}</p>
+                    {hobbies.map((hobby, i) => (
+                      <p key={i}>{hobby}</p>
                     ))}
                   </div>
                 </div>
@@ -306,9 +310,9 @@ const ResumeFormat3 = ({
                     WORK EXPERIENCE
                   </p>
                   <div>
-                    {workExpList.map((work) => {
+                    {workExpList.map((work, i) => {
                       return (
-                        <div>
+                        <div key={i}>
                           <p className="text-base lg:text-lg font-semibold">
                             {work.company}
                           </p>
@@ -332,9 +336,9 @@ const ResumeFormat3 = ({
                     PROJECTS
                   </p>
                   <div>
-                    {projectsList.map((project) => {
+                    {projectsList.map((project, i) => {
                       return (
-                        <div>
+                        <div key={i}>
                           <p className="font-semibold text-base lg:text-lg">
                             {project.name}
                           </p>
@@ -375,9 +379,9 @@ const ResumeFormat3 = ({
               {newDetails.length !== 0 && (
                 <div>
                   <div className="flex flex-col">
-                    {newDetails.map((details) => {
+                    {newDetails.map((details, i) => {
                       return (
-                        <div className="flex flex-col justify-center">
+                        <div key={i} className="flex flex-col justify-center">
                           {details.title && (
                             <p className="mt-2 mb-1 font-semibold text-sm lg:text-base text-blue-400 border-b-2 border-blue-400">
                               {details.title.toUpperCase()}

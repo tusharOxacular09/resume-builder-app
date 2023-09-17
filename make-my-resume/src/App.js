@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
 import BuildResume from "./components/Build/BuildResume";
-import History from "./components/History/History";
 import { useState } from "react";
 import Location from "./components/Build/Input/Location";
 import PersonalDetails from "./components/Build/Input/PersonalDetails";
@@ -42,9 +41,9 @@ function App() {
   });
 
   const [projectsList, setProjectsList] = useState(() => {
-     const myProjects = JSON.parse(localStorage.getItem("My_Projects"));
-     return myProjects || [];
-  }); 
+    const myProjects = JSON.parse(localStorage.getItem("My_Projects"));
+    return myProjects || [];
+  });
 
   const [workExpList, setWorkExpList] = useState(() => {
     const myExperience = JSON.parse(
@@ -62,29 +61,29 @@ function App() {
     return mySkills || [];
   });
 
-  const [certificationList, setCertificationList ] = useState(() => {
+  const [certificationList, setCertificationList] = useState(() => {
     const myCertificates = JSON.parse(localStorage.getItem("My_Certificates"));
     return myCertificates || [];
-  })
+  });
 
   const [languageList, setLanguageList] = useState(() => {
     const myLanguages = JSON.parse(localStorage.getItem("My_Languages"));
     return myLanguages || [];
-  })
+  });
 
   const [awardList, setAwardList] = useState(() => {
-     const myAwards = JSON.parse(localStorage.getItem("My_Awards"));
-     return myAwards || [];
-  })
-  const [hobbies, setHobbies] = useState(()=>{
+    const myAwards = JSON.parse(localStorage.getItem("My_Awards"));
+    return myAwards || [];
+  });
+  const [hobbies, setHobbies] = useState(() => {
     const myHobbies = JSON.parse(localStorage.getItem("My_Hobbies"));
     return myHobbies || [];
   });
 
   const [newDetails, setNewDetails] = useState(() => {
-     const otherDetails = JSON.parse(localStorage.getItem("New_Details"));
-     return otherDetails || [];
-  })
+    const otherDetails = JSON.parse(localStorage.getItem("New_Details"));
+    return otherDetails || [];
+  });
   return (
     <div>
       <NavBar />
@@ -155,23 +154,46 @@ function App() {
             ></Route>
             <Route
               path="projects"
-              element={<Projects projectsList={projectsList} setProjectsList={setProjectsList} />}
+              element={
+                <Projects
+                  projectsList={projectsList}
+                  setProjectsList={setProjectsList}
+                />
+              }
             ></Route>
             <Route
               path="certifications"
-              element={<Certifications certificationList={certificationList} setCertificationList={setCertificationList}/>}
+              element={
+                <Certifications
+                  certificationList={certificationList}
+                  setCertificationList={setCertificationList}
+                />
+              }
             ></Route>
             <Route
               path="others"
-              element={<Others languageList={languageList} setLanguageList={setLanguageList} awardList={awardList} setAwardList={setAwardList} hobbies={hobbies} setHobbies={setHobbies} />}
+              element={
+                <Others
+                  languageList={languageList}
+                  setLanguageList={setLanguageList}
+                  awardList={awardList}
+                  setAwardList={setAwardList}
+                  hobbies={hobbies}
+                  setHobbies={setHobbies}
+                />
+              }
             ></Route>
             <Route
               path="custom-details"
-              element={<CustomDetails newDetails={newDetails} setNewDetails={setNewDetails} />}
+              element={
+                <CustomDetails
+                  newDetails={newDetails}
+                  setNewDetails={setNewDetails}
+                />
+              }
             ></Route>
             <Route path=":id" element={<div>OK!</div>} />
           </Route>
-          <Route path="/history" element={<History />} />
         </Routes>
       </div>
     </div>

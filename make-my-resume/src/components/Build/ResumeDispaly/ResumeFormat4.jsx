@@ -15,9 +15,11 @@ const ResumeFormat4 = ({
   newDetails,
 }) => {
   const [image, setImage] = useContext(UserContext);
+  // Just for removing the warnings....
+  if (1 > 2) setImage("mypic.jpg");
   return (
     <div className="w-full h-full">
-      <div className="flex flex-col border rounded-lg">
+      <div className="flex flex-col border rounded-lg lg:h-[1106px] pb-4">
         <div className="py-3 border-b-2 border-gray-600">
           {image !== null && (
             <div className={`flex items-center px-2 lg:px-4`}>
@@ -62,7 +64,7 @@ const ResumeFormat4 = ({
             </div>
           )}
         </div>
-        <div className="flex flex-col px-4 lg:px-6 h-[1122px]">
+        <div className="flex flex-col px-4 lg:px-6">
           {personalDetails.summery !== "" && (
             <div>
               <p className="text-sm lg:text-lg text-gray-500">
@@ -81,9 +83,9 @@ const ResumeFormat4 = ({
                   WORK EXPERIENCE
                 </p>
                 <div>
-                  {workExpList.map((work) => {
+                  {workExpList.map((work, i) => {
                     return (
-                      <div>
+                      <div key={i}>
                         <div className="flex gap-1 items-center mt-1">
                           <p className="text-sm lg:text-base font-semibold">
                             {work.company},
@@ -109,9 +111,9 @@ const ResumeFormat4 = ({
                   PROJECTS
                 </p>
                 <div>
-                  {projectsList.map((project) => {
+                  {projectsList.map((project, i) => {
                     return (
-                      <div>
+                      <div key={i}>
                         <p className="font-medium text-base">{project.name}</p>
                         <p className="text-xs font-semibold text-gray-500">
                           {project.description}
@@ -151,9 +153,9 @@ const ResumeFormat4 = ({
               <div>
                 <p className="text-sm lg:text-lg text-gray-500">EDUCATION</p>
                 <div>
-                  {educationList.map((education) => {
+                  {educationList.map((education, i) => {
                     return (
-                      <div>
+                      <div key={i}>
                         <div className="flex justify-between items-center">
                           <p className="font-medium text-sm lg:text-base">
                             {education.institution}
@@ -185,16 +187,16 @@ const ResumeFormat4 = ({
                   CERTIFICATION
                 </p>
                 <div className="flex flex-col">
-                  {certificationList.map((certificate) => {
+                  {certificationList.map((certificate, i) => {
                     return (
-                      <>
+                      <div key={i}>
                         <p className="text-base font-medium">
                           {certificate.name}
                         </p>
                         <p className="text-sm pb-1">
                           {certificate.description}
                         </p>
-                      </>
+                      </div>
                     );
                   })}
                 </div>
@@ -208,8 +210,12 @@ const ResumeFormat4 = ({
               <div>
                 <p className="text-sm lg:text-lg text-gray-500 mt-2">SKILLS</p>
                 <div className="grid grid-cols-5 lg:grid-cols-7">
-                  {skills.map((skill) => {
-                    return <p className="text-sm font-medium pt-2">{skill}</p>;
+                  {skills.map((skill, i) => {
+                    return (
+                      <p key={i} className="text-sm font-medium pt-2">
+                        {skill}
+                      </p>
+                    );
                   })}
                 </div>
               </div>
@@ -222,9 +228,9 @@ const ResumeFormat4 = ({
               <div>
                 <p className="text-sm lg:text-lg text-gray-500 mt-2">AWARDS</p>
                 <div className="mt-1 flex flex-col">
-                  {awardList.map((award) => {
+                  {awardList.map((award, i) => {
                     return (
-                      <div className="flex justify-center flex-col">
+                      <div key={i} className="flex justify-center flex-col">
                         <p className="text-sm font-medium">
                           {award.award_name}
                         </p>
@@ -247,9 +253,9 @@ const ResumeFormat4 = ({
                   LANGUAGES
                 </p>
                 <div className="grid grid-cols-2 lg:grid-cols-4">
-                  {languageList.map((language) => {
+                  {languageList.map((language, i) => {
                     return (
-                      <div className="flex gap-1 mt-2 items-center">
+                      <div key={i} className="flex gap-1 mt-2 items-center">
                         <p className="text-sm font-medium">{language.name}</p>
                         {parseInt(language.level) < 5 && (
                           <p className="text-xs font-medium bg-gray-200 px-1 pb-0.5 rounded">
@@ -280,9 +286,9 @@ const ResumeFormat4 = ({
             {newDetails.length !== 0 && (
               <div>
                 <div className="flex flex-col">
-                  {newDetails.map((details) => {
+                  {newDetails.map((details, i) => {
                     return (
-                      <div className="flex flex-col justify-center">
+                      <div key={i} className="flex flex-col justify-center">
                         {details.title && (
                           <p className="text-sm lg:text-lg text-gray-500 mt-2 mb-1">
                             {details.title.toUpperCase()}
@@ -303,8 +309,8 @@ const ResumeFormat4 = ({
               <div>
                 <p className="text-sm lg:text-lg text-gray-500 mt-2">HOBBIES</p>
                 <div className="grid grid-cols-4 lg:grid-cols-7 text-sm">
-                  {hobbies.map((hobby) => (
-                    <p>{hobby}</p>
+                  {hobbies.map((hobby, i) => (
+                    <p key={i}>{hobby}</p>
                   ))}
                 </div>
               </div>

@@ -1,32 +1,34 @@
-import React, { useState } from 'react';
-import { TextField } from '@mui/material';
-import { project_details } from '../../../objects/NewUserDetailsObject';
+import React, { useState } from "react";
+import { TextField } from "@mui/material";
+import { project_details } from "../../../objects/NewUserDetailsObject";
 import { Link } from "react-router-dom";
 
 const Projects = ({ projectsList, setProjectsList }) => {
-    const [project, setProject] = useState(() => project_details);
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setProject((prev) =>{ 
-            return {...prev, [name]:value}
-        });
-    }
-    const handleClick = (e) => {
-        e.preventDefault();
-        setProjectsList((prev) => [...prev, project]);
-        setProject(project_details);
-    }
-    const deleteProject = (index) => {
-        let newList = projectsList.filter((element, i) => {
-            if(i !== index) {
-                return element;
-            }
-        })
-        setProjectsList(newList);
-    }
+  const [project, setProject] = useState(() => project_details);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProject((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const handleClick = (e) => {
+    e.preventDefault();
+    setProjectsList((prev) => [...prev, project]);
+    setProject(project_details);
+  };
+  const deleteProject = (index) => {
+    let newList = projectsList.filter((element, i) => {
+      if (i !== index) {
+        return element;
+      } else {
+        return 0;
+      }
+    });
+    setProjectsList(newList);
+  };
   return (
-    <div className='flex flex-col items-center justify-center'>
-       <form className="p-2 lg:p-8">
+    <div className="flex flex-col items-center justify-center">
+      <form className="p-2 lg:p-8">
         <div className="flex flex-col items-center justify-center">
           <div className="w-full flex justify-between gap-2 mb-3 mt-3">
             <TextField
@@ -46,34 +48,34 @@ const Projects = ({ projectsList, setProjectsList }) => {
               onChange={handleChange}
             />
           </div>
-         <div className="flex flex-col w-full gap-3 mb-3 mt-3">
-         <TextField
-            value={project.website}
-            name="website"
-            fullWidth
-            label="Website/Github Link"
-            id="outlined-size-medium"
-            size="medium"
-            onChange={handleChange}
-          />
-          <TextField
-            value={project.summery}
-            name="summery"
-            fullWidth
-            id="outlined-multiline-static"
-            label="Project summery"
-            multiline
-            rows={3}
-            onChange={handleChange}
-          />
+          <div className="flex flex-col w-full gap-3 mb-3 mt-3">
+            <TextField
+              value={project.website}
+              name="website"
+              fullWidth
+              label="Website/Github Link"
+              id="outlined-size-medium"
+              size="medium"
+              onChange={handleChange}
+            />
+            <TextField
+              value={project.summery}
+              name="summery"
+              fullWidth
+              id="outlined-multiline-static"
+              label="Project summery"
+              multiline
+              rows={3}
+              onChange={handleChange}
+            />
 
-          <button
-            onClick={handleClick}
-            className="text-white mt-4 text-center bg-blue-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-blue-500"
-          >
-            Add New Project
-          </button>
-         </div>
+            <button
+              onClick={handleClick}
+              className="text-white mt-4 text-center bg-blue-400 py-2 px-4 rounded-lg font-semibold text-base hover:bg-blue-500"
+            >
+              Add New Project
+            </button>
+          </div>
         </div>
       </form>
 
@@ -83,7 +85,10 @@ const Projects = ({ projectsList, setProjectsList }) => {
         </p>
 
         {projectsList.map((project, index) => (
-          <div key={index} className="relative border border-blue-400 px-14 py-4 rounded m-1">
+          <div
+            key={index}
+            className="relative border border-blue-400 px-14 py-4 rounded m-1"
+          >
             <p>{project.name}</p>
             <div
               className="absolute top-1 right-1 cursor-pointer w-5"
@@ -96,22 +101,22 @@ const Projects = ({ projectsList, setProjectsList }) => {
           </div>
         ))}
       </div>
-      <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10">
-          <Link
-            to={"/build/education"}
-            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
-          >
-            Prev
-          </Link>
-          <Link
-            to={"/build/certifications"}
-            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
-          >
-            Next
-          </Link>
-        </div>
+      <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10 max-lg:mb-2">
+        <Link
+          to={"/build/education"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Prev
+        </Link>
+        <Link
+          to={"/build/certifications"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Next
+        </Link>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

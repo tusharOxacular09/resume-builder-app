@@ -36,6 +36,8 @@ const Others = ({
     let newList = languageList.filter((element, i) => {
       if (i !== index) {
         return element;
+      } else {
+        return 0;
       }
     });
     setLanguageList(newList);
@@ -50,6 +52,8 @@ const Others = ({
     let newList = awardList.filter((element, i) => {
       if (i !== index) {
         return element;
+      } else {
+        return 0;
       }
     });
     setAwardList(newList);
@@ -65,12 +69,14 @@ const Others = ({
     let newList = hobbies.filter((element, i) => {
       if (i !== index) {
         return element;
+      } else {
+        return 0;
       }
     });
     setHobbies(newList);
   };
   return (
-    <div className="p-2 max-lg:m-2 lg:p-8">
+    <div className="p-2 lg:px-8">
       <div>
         <p className="font-semibold border rounded py-1 mb-4 border-gray-400 text-xl font-sans text-center">
           Languages

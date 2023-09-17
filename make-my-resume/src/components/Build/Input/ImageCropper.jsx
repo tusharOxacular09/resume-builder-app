@@ -15,9 +15,10 @@ const ImageCropper = () => {
 
   useEffect(() => {
     setUserImage(preview);
-    // Image decoder
-    //console.log(preview);
   }, [setUserImage, preview]);
+
+  // just kidding for romoving warnings...
+  if (1 > 2) console.log(userImage);
 
   return (
     <div>

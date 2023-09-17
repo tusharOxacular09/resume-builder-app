@@ -21,13 +21,15 @@ const CustomDetails = ({ newDetails, setNewDetails }) => {
     let newList = newDetails.filter((element, i) => {
       if (i !== index) {
         return element;
+      } else {
+        return 0;
       }
     });
     setNewDetails(newList);
   };
 
   return (
-    <div className="p-2 lg:p-8">
+    <div className="p-2 lg:p-8 max-lg:pb-8">
       <form className="w-full flex gap-3 flex-col items-center justify-center">
         <TextField
           required

@@ -3,13 +3,13 @@ import TextField from "@mui/material/TextField";
 import { user_certificate } from "../../../objects/NewUserDetailsObject";
 import { Link } from "react-router-dom";
 
-const Certifications = ({certificationList, setCertificationList}) => {
-  const [myCertificate, setMyCertificate] = useState(() => user_certificate)
+const Certifications = ({ certificationList, setCertificationList }) => {
+  const [myCertificate, setMyCertificate] = useState(() => user_certificate);
   const handleChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setMyCertificate((prev) => {
-      return {...prev, [name]:value};
-    })
+      return { ...prev, [name]: value };
+    });
   };
   const handleClick = (e) => {
     e.preventDefault();
@@ -18,15 +18,17 @@ const Certifications = ({certificationList, setCertificationList}) => {
   };
 
   const deleteSkills = (index) => {
-      let newList = certificationList.filter( function (element, i) {
-          if(i !== index) {
-            return element;
-          }
-      })
-      setCertificationList(newList);
-  }
+    let newList = certificationList.filter(function (element, i) {
+      if (i !== index) {
+        return element;
+      } else {
+        return 0;
+      }
+    });
+    setCertificationList(newList);
+  };
   return (
-    <div className="flex flex-col justify-center items-center gap-4 p-4 lg:p-8 max-lg:mt-2">
+    <div className="flex flex-col justify-center items-center gap-4 px-4 max-lg:py-2 lg:p-8 max-lg:mt-2">
       <TextField
         fullWidth
         value={myCertificate.name}
@@ -60,7 +62,10 @@ const Certifications = ({certificationList, setCertificationList}) => {
           Certificates
         </p>
         {certificationList.map((certificate, index) => (
-          <div key={index} className="border border-blue-400 rounded m-1 flex items-center justify-between gap-4 px-4 py-2">
+          <div
+            key={index}
+            className="border border-blue-400 rounded m-1 flex items-center justify-between gap-4 px-4 py-2"
+          >
             <p>{certificate.name}</p>
             <div
               className="cursor-pointer w-5"
@@ -74,19 +79,19 @@ const Certifications = ({certificationList, setCertificationList}) => {
         ))}
       </div>
       <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10">
-          <Link
-            to={"/build/projects"}
-            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
-          >
-            Prev
-          </Link>
-          <Link
-            to={"/build/others"}
-            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
-          >
-            Next
-          </Link>
-        </div>
+        <Link
+          to={"/build/projects"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Prev
+        </Link>
+        <Link
+          to={"/build/others"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Next
+        </Link>
+      </div>
     </div>
   );
 };

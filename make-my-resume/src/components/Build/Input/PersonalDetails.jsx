@@ -12,7 +12,7 @@ const PersonalDetails = ({ setPersonalDetails, personalDetails }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-2">
+    <div className="flex flex-col items-center justify-center p-2 max-lg:pb-12">
       <div className="flex flex-col items-center justify-center mb-2 max-lg:mb-4">
         <p className="text-lg font-semibold mb-1">Upload Your Image.....</p>
         <ImageCropper />

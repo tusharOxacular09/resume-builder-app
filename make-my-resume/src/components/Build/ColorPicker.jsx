@@ -30,7 +30,7 @@ const ColorPicker = ({ setBackground, setResumeFormat }) => {
   ];
 
   return (
-      <div className="flex flex-col overflow-y-scroll h-screen scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100">
+      <div className="flex flex-col overflow-y-scroll h-full scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100">
         <div className="flex flex-col items-center p-2">
           <p className="font-semibold text-2xl border-b-2 border-gray-500">
             Theme

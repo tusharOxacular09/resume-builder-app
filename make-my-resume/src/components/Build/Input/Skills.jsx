@@ -14,6 +14,8 @@ const Skills = ({ skills, setSkills }) => {
     let newList = skills.filter((element, i) => {
       if (i !== index) {
         return element;
+      } else {
+        return 0;
       }
     });
     setSkills(newList);
@@ -58,7 +60,7 @@ const Skills = ({ skills, setSkills }) => {
           </div>
         ))}
       </div>
-      <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10">
+      <div className="w-full mt-2 flex items-center justify-between px-2 lg:px-10 max-lg:mb-2">
         <Link
           to={"/build/work-experience"}
           className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"

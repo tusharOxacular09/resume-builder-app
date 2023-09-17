@@ -12,7 +12,7 @@ const WorkExperience = ({
   const handleChange = (e) => {
     const { name, value } = e.target;
     setWorkExperience((prev) => {
-      return { ...prev, [name]:value };
+      return { ...prev, [name]: value };
     });
   };
 
@@ -29,6 +29,8 @@ const WorkExperience = ({
     let newList = workExpList.filter((element, i) => {
       if (i !== index) {
         return element;
+      } else {
+        return 0;
       }
     });
     setWorkExpList(newList);
@@ -84,7 +86,10 @@ const WorkExperience = ({
           Work Experiences
         </p>
         {workExpList.map((workExp, index) => (
-          <div key={index} className="relative border border-blue-400 px-14 py-4 rounded m-1">
+          <div
+            key={index}
+            className="relative border border-blue-400 px-14 py-4 rounded m-1"
+          >
             <p>{workExp.company}</p>
             <div
               className="absolute top-1 right-1 cursor-pointer w-5"
@@ -97,20 +102,20 @@ const WorkExperience = ({
           </div>
         ))}
       </div>
-      <div className="w-full mt-4 flex items-center justify-between px-2 lg:px-10">
-          <Link
-            to={"/build/location"}
-            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
-          >
-            Prev
-          </Link>
-          <Link
-            to={"/build/skills"}
-            className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
-          >
-            Next
-          </Link>
-        </div>
+      <div className="w-full mt-4 flex items-center justify-between px-2 lg:px-10 max-lg:mb-2">
+        <Link
+          to={"/build/location"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Prev
+        </Link>
+        <Link
+          to={"/build/skills"}
+          className="text-white bg-blue-400 px-6 py-2 rounded hover:bg-blue-500 font-semibold"
+        >
+          Next
+        </Link>
+      </div>
     </div>
   );
 };

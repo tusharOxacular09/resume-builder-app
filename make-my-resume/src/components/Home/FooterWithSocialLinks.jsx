@@ -10,17 +10,22 @@ export function FooterWithSocialLinks() {
           <Typography variant="h5" className="mb-6">
             makeMYresume
           </Typography>
-          <p className="text-sm">Build beautiful, recruiter-tested resumes in a few clicks! Our resume builder is powerful and easy to use, with a range of amazing functions. Custom-tailor resumes for any job within minutes. Increase your interview chances and rise above the competition.</p>
+          <p className="text-sm">
+            Build beautiful, recruiter-tested resumes in a few clicks! Our
+            resume builder is powerful and easy to use, with a range of amazing
+            functions. Custom-tailor resumes for any job within minutes.
+            Increase your interview chances and rise above the competition.
+          </p>
         </div>
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
           <Typography
             variant="small"
             className="mb-4 font-normal text-blue-gray-900 md:mb-0"
           >
-          <p>{currentYear}{" "} makeMYresume All Rights Reserved.</p>
+            <p>{currentYear} makeMYresume All Rights Reserved.</p>
           </Typography>
           <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
-  
+            <p className="text-sm font-sans">Connect with us...</p>
             <Typography
               as="a"
               target="_blank"

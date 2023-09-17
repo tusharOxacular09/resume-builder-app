@@ -3,9 +3,7 @@ import ResumeFormat1 from "./ResumeFormat1";
 import ResumeFormat2 from "./ResumeFormat2";
 import ResumeFormat3 from "./ResumeFormat3";
 import ResumeFormat4 from "./ResumeFormat4";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
-import html2pdf from 'html2pdf.js';
+import { useReactToPrint } from "react-to-print";
 
 const ResumeOutput = ({
   personalDetails,
@@ -24,22 +22,13 @@ const ResumeOutput = ({
 }) => {
   const screenshotRef = useRef(null);
 
-  const captureAndSaveResume = () => {
-    const content = screenshotRef.current;
-    const pdfOptions = {
-      margin: 0,
-      filename: 'resume.pdf',
-      image: { type: 'jpeg', quality: 1.0 },
-      html2canvas: { scale: 3 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', putOnlyUsedFonts: true },
-    };
-
-    html2pdf().from(content).set(pdfOptions).save();
-  };
+  const captureAndSaveResume = useReactToPrint({
+    content: () => screenshotRef.current,
+  });
 
   return (
     <div>
-      <div ref={screenshotRef} className="m-2">
+      <div ref={screenshotRef} className="p-2">
         {resumeFormat === 1 && (
           <ResumeFormat1
             personalDetails={personalDetails}
@@ -108,7 +97,7 @@ const ResumeOutput = ({
           />
         )}
       </div>
-      <div className="flex justify-end pr-2 pt-2 pb-4 lg:pb-20">
+      <div className="flex justify-center pr-2 p-2 lg:pt-4 pb-4 lg:pb-16">
         <button
           onClick={captureAndSaveResume}
           type="primary"
