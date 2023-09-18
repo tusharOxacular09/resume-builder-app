@@ -29,7 +29,7 @@ export function FooterWithSocialLinks() {
             <Typography
               as="a"
               target="_blank"
-              href="https://github.com/tusharOxacular09/resume-builder-app"
+              href="https://github.com/tusharOxacular09"
               className="opacity-80 transition-opacity hover:opacity-100"
             >
               <svg
