@@ -257,7 +257,7 @@ const ResumeFormat4 = ({
                     return (
                       <div key={i} className="flex gap-1 mt-2 items-center">
                         <p className="text-sm font-medium">{language.name}</p>
-                        {parseInt(language.level) < 5 && (
+                        {parseInt(language.level) <= 5 && (
                           <p className="text-xs font-medium bg-gray-200 px-1 pb-0.5 rounded">
                             Basic
                           </p>
