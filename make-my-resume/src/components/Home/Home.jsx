@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CvSlider from "./CvSlider";
 
 const Home = () => {
-  const [image, setImage] = useState("./images/cv10.jpg");
+  const [image, setImage] = useState("./images/cv1.jpg");
   return (
     <div className="w-full mt-24">
       <div className="lg:flex items-center">
